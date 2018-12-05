@@ -1,0 +1,5 @@
+.env
+.vscode
+*.pyc
+node_modules
+yarn.lock
