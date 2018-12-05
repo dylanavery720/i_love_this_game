@@ -2,10 +2,11 @@
 {% load static %}
 {% block content %}
 <div class="homepage">
-    <!-- <img src="{% static 'img/dylan.jpg' %}"> -->
     {% for player in cards %}
     <li>
         <p>{{ player.name }} / {{ player.team }} / APG: {{ player.apg }}</p>
+        <p>{{ player.teamlogo }}</p>
+        <p>{{ player.avatar }}</p>
     </li>
     {% endfor %}
 </div>

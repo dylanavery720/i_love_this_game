@@ -12,7 +12,7 @@ def index(request):
             Card.objects.create_card(index, player['name'], player['age'], player['team'].value.title(), player['positions'][0].value, player['assists'], player['games_played'])
         except:
             pass
-    cards = Card.objects.all()      
+    cards = Card.objects.all()    
     context = {
         'cards': cards,
     }
