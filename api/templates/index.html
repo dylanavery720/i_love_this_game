@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
 <div class="homepage">
-    {% for player in season_totals %}
+    {% for player in cards %}
     <li>
-        <p>{{ player.name }}</p>
+        <p>{{ player.name }} : {{ player.team }}</p>
     </li>
     {% endfor %}
 </div>
