@@ -12,12 +12,15 @@ from django.db import models
 # CardManager will need some methods to calculate stats
 
 # minutes / games played
-# points / games games_played
+# points / games games_played ??? where are points ? 
 # etc
 
 class CardManager(models.Manager):
-    def  create_card(self, id, name, age, team):
-        card = self.create(id=id,name=name, age=age, team=team)
+    def  create_card(self, id, name, age, team, position, assists, games):
+        teamlogo = 'img/' + team + '.jpg'
+        avatar = 'img/' + name
+        apg = "{:.1f}".format(assists / games)
+        card = self.create(id=id,name=name, age=age, team=team, teamlogo=teamlogo, avatar=avatar, position=position, apg=apg)
         return card 
 
 class Card(models.Model):
@@ -25,6 +28,11 @@ class Card(models.Model):
     name = models.CharField(max_length=200)
     age = models.CharField(max_length=200)
     team = models.CharField(max_length=200)
+    teamlogo = models.CharField(max_length=200)
+    avatar = models.CharField(max_length=200)
+    position = models.CharField(max_length=200)
+    games = models.CharField(max_length=200)
+    apg = models.CharField(max_length=200)
     
     objects = CardManager()
     def __str__(self):
