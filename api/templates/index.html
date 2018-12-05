@@ -2,9 +2,11 @@
 {% load static %}
 {% block content %}
 <div class="homepage">
-    {% for player in season_totals %}
+    {% for player in cards %}
     <li>
-        <p>{{ player.name }}</p>
+        <p>{{ player.name }} / {{ player.team }} / APG: {{ player.apg }}</p>
+        <p>{{ player.teamlogo }}</p>
+        <p>{{ player.avatar }}</p>
     </li>
     {% endfor %}
 </div>
