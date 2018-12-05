@@ -8,6 +8,7 @@ from api.models import Card
 def index(request):
     season_totals = client.players_season_totals(season_end_year=2018)
     for index, player in enumerate(season_totals):
+        
         try:
             Card.objects.create_card(index, player['name'], player['age'], player['team'].value)
         except:

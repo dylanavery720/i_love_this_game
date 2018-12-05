@@ -2,6 +2,19 @@ from django.db import models
 
 # Create your models here.
 
+# {'name': 'Ivica Zubac', 'positions': [<Position.CENTER: 'CENTER'>], 
+# 'age': 20, 'team': <Team.LOS_ANGELES_LAKERS: 'LOS ANGELES LAKERS'>, 'games_played': 43, 
+# 'games_started': 0, 'minutes_played': 410, 'made_field_goals': 61, 'attempted_field_goals': 122, 
+# 'made_three_point_field_goals': 0, 'attempted_three_point_field_goals': 1, 'made_free_throws': 39, 
+# 'attempted_free_throws': 51, 'offensive_rebounds': 45, 'defensive_rebounds': 78, 'assists': 25, 
+# 'steals': 8, 'blocks': 15, 'turnovers': 26, 'personal_fouls': 47}
+
+# CardManager will need some methods to calculate stats
+
+# minutes / games played
+# points / games games_played
+# etc
+
 class CardManager(models.Manager):
     def  create_card(self, id, name, age, team):
         card = self.create(id=id,name=name, age=age, team=team)

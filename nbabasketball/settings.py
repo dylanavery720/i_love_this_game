@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'api.apps.ApiConfig'
     
 ]
@@ -118,6 +119,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_ACCESS_KEY_ID = os.getenv("GS_ACCESS_KEY_ID")
+GS_SECRET_ACCESS_KEY = os.getenv("GS_SECRET_ACCESS_KEY")
+GS_BUCKET_NAME = os.getenv("GS_BUCKET_NAME")
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'api/static'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

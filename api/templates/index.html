@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="homepage">
+    <img src="{% static 'img/dylan.jpg' %}">
     {% for player in cards %}
     <li>
         <p>{{ player.name }} : {{ player.team }}</p>
