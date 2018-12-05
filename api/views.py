@@ -13,9 +13,8 @@ def index(request):
         except:
             pass
     
-    allcards2 = Card.objects.all() 
-    print(len(allcards2))
+    cards = Card.objects.all() 
     context = {
-        'season_totals': season_totals,
+        'cards': cards,
     }
     return render(request, 'index.html', context=context)
