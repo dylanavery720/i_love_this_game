@@ -4,4 +4,5 @@ from api import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('card', views.card, name='card'),
 ]

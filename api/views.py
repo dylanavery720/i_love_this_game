@@ -19,3 +19,11 @@ def index(request):
         'cards': cards,
     }
     return render(request, 'index.html', context=context)
+
+
+def card(request):
+    cards = Card.objects.all()
+    context = {
+        'cards': cards,
+    }
+    return render(request, 'card.html', context=context)
