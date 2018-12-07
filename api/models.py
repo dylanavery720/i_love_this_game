@@ -1,44 +1,37 @@
 from django.db import models
 import stringcase
+from basketball_reference_web_scraper import client
 
 # Once deployed Database should be updated every day so that cards stay up to date...
+# season_totals_2017 = client.players_season_totals(season_end_year=2018)
+# season_totals_2016 = client.players_season_totals(season_end_year=2017)
 
 
 class CardManager(models.Manager):
     def create_card(self, id, player):
-        print('creating card')
         teamlogo = 'img/' + \
             stringcase.snakecase(player['team'].value.title()) + '.jpg'
         avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.jpg'
         photo = 'img/' + stringcase.snakecase(player['name']) + '.jpg'
-        print('calculating points')
         points = self.calculatePoints(
             player['made_free_throws'], player['made_field_goals'], player['made_three_point_field_goals'])
-        print('done')
         apg = "{:.1f}".format(player['assists'] / player['games_played'])
         spg = "{:.1f}".format(player['steals'] / player['games_played'])
         bpg = "{:.1f}".format(player['blocks'] / player['games_played'])
         rpg = "{:.1f}".format(
             (player['offensive_rebounds'] + player['defensive_rebounds']) / player['games_played'])
         ppg = "{:.1f}".format(points / player['games_played'])
-        fgpercentage = "{:.1f}".format(
+        fgpercentage = "{0:.1%}".format(
             player['made_field_goals'] / player['attempted_field_goals'])
-        ftpercentage = "{:.1f}".format(
+        ftpercentage = "{0:.1%}".format(
             player['made_free_throws'] / player['attempted_free_throws'])
         gp = player['games_played']
-        print(id)
-        print(id, player['name'], player['age'])
-        print(player['team'].value.title(
-        ), teamlogo, avatar)
-        print(apg, spg, bpg, rpg, ppg, gp, fgpercentage,
-              ftpercentage, player['positions'][0].value)
-        print('saving card to db')
-        card = self.create(id=id, name=player['name'], age=player['age'], team=player['team'].value.title(), teamlogo=teamlogo, avatar=avatar, position=player['positions'][0].value,
+        card = self.create(id=id, name=player['name'], age=player['age'], team=player['team'].value.title(), teamlogo=teamlogo, avatar=avatar, photo=photo, position=player['positions'][0].value,
                            apg=apg, spg=spg, bpg=bpg, rpg=rpg, ppg=ppg, gp=gp, fgpercentage=fgpercentage, ftpercentage=ftpercentage)
         return card
 
     def calculatePoints(self, ft, fg, three):
-        return (ft + (fg * 2) + (three * 3))
+        return (ft + ((fg-three) * 2) + (three * 3))
 
 
 class Card(models.Model):

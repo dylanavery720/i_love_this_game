@@ -6,12 +6,13 @@ from api.models import Card
 
 
 def index(request):
-    season_totals = client.players_season_totals(season_end_year=2018)
+    Card.objects.all().delete()
+    season_totals = client.players_season_totals(season_end_year=2019)
     for index, player in enumerate(season_totals):
         try:
             Card.objects.create_card(index, player)
         except:
-            print('fail')
+            print('making cards')
             pass
     cards = Card.objects.all()
     context = {
