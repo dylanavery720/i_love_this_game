@@ -12,7 +12,6 @@ def index(request):
         try:
             Card.objects.create_card(index, player)
         except:
-            print('making cards')
             pass
     cards = Card.objects.all()
     context = {

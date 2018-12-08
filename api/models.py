@@ -9,6 +9,7 @@ from basketball_reference_web_scraper import client
 
 class CardManager(models.Manager):
     def create_card(self, id, player):
+        print('creating card')
         teamlogo = 'img/' + \
             stringcase.snakecase(player['team'].value.title()) + '.jpg'
         avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.jpg'
@@ -22,16 +23,28 @@ class CardManager(models.Manager):
             (player['offensive_rebounds'] + player['defensive_rebounds']) / player['games_played'])
         ppg = "{:.1f}".format(points / player['games_played'])
         fgpercentage = "{0:.1%}".format(
-            player['made_field_goals'] / player['attempted_field_goals'])
+            player['made_field_goals'] / player['attempted_field_goals'])[:-1]
         ftpercentage = "{0:.1%}".format(
-            player['made_free_throws'] / player['attempted_free_throws'])
-        gp = player['games_played']
-        card = self.create(id=id, name=player['name'], age=player['age'], team=player['team'].value.title(), teamlogo=teamlogo, avatar=avatar, photo=photo, position=player['positions'][0].value,
-                           apg=apg, spg=spg, bpg=bpg, rpg=rpg, ppg=ppg, gp=gp, fgpercentage=fgpercentage, ftpercentage=ftpercentage)
+            player['made_free_throws'] / player['attempted_free_throws'])[:-1]
+        gp = '%02d' % player['games_played']
+        print('grabbing first name and last name')
+        lastname = player['name'].split(' ', 1)[0]
+        firstname = player['name'].split(' ', 1)[1]
+        print('grabbing position')
+        position = "".join([word[0]
+                            for word in player['positions'][0].value.split()])
+        team = self.getTeam(player['team'].value.title())
+        card = self.create(id=id, name=player['name'], age=player['age'], team=team, teamlogo=teamlogo, avatar=avatar, photo=photo, position=position,
+                           apg=apg, spg=spg, bpg=bpg, rpg=rpg, ppg=ppg, gp=gp, fgpercentage=fgpercentage, ftpercentage=ftpercentage, firstname=firstname, lastname=lastname)
         return card
 
     def calculatePoints(self, ft, fg, three):
         return (ft + ((fg-three) * 2) + (three * 3))
+
+    def getTeam(self, team):
+        if 3 < len(team.split(' ', 1)[0]) <= 7:
+            return team.split(' ', 1)[0]
+        return team[:6]
 
 
 class Card(models.Model):
@@ -48,6 +61,8 @@ class Card(models.Model):
     bpg = models.CharField(max_length=200)
     rpg = models.CharField(max_length=200)
     ppg = models.CharField(max_length=200)
+    firstname = models.CharField(max_length=200)
+    lastname = models.CharField(max_length=200)
     fgpercentage = models.CharField(max_length=200)
     ftpercentage = models.CharField(max_length=200)
     gp = models.CharField(max_length=200)
@@ -73,5 +88,6 @@ class Card(models.Model):
                 my_cards.append(cardObject.name)
             except:
                 cardObjects = self.objects.all()
+                print('fail')
                 # self.objects.all().delete()
         return my_cards

@@ -97,8 +97,9 @@
     grid-row-end: 20;
     color: red;
     width: 300px;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 2;
+    letter-spacing: .5px;
   }
   
   .stats {
@@ -108,8 +109,9 @@
     grid-row-end: 20;
     color: black;
     width: 300px;
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 2;
+    letter-spacing: 1.2px;
   }
   
   .stats2 {
