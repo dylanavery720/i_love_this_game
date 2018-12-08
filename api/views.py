@@ -12,10 +12,17 @@ def index(request):
         try:
             Card.objects.create_card(index, player)
         except:
-            print('making cards')
             pass
     cards = Card.objects.all()
     context = {
         'cards': cards,
     }
     return render(request, 'index.html', context=context)
+
+
+def card(request):
+    cards = Card.objects.all()
+    context = {
+        'cards': cards,
+    }
+    return render(request, 'card.html', context=context)

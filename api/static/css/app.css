@@ -1,3 +1,137 @@
-body {
-    background: red;
-}
+
+.container {
+    display: grid;
+  /*   border: 5px solid red; */
+    box-shadow: 3px 3px 3px;
+    grid-template-columns: repeat(30, 10px);
+    grid-template-rows: 10px 100px 10px 5px 5px 5px 5px auto;
+    height: 450px;
+    width: 300px;
+    margin: auto;
+  }
+  
+  .item-a {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 32;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Nz_FzJ8LaKWfWiDaFm5Ed7GcQ99Gf72lIsOhkdLBeP5gXb12');
+  }
+  
+  .avatar {
+    background-size: 105px 250px;
+    grid-column-start: 21;
+    grid-column-end: 30;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    border: 3px solid aquamarine;
+    box-shadow: 3px 3px 2px;
+    background-image: url('https://pbs.twimg.com/profile_images/1054430952804380672/AYggQ-3Q_400x400.jpg');
+  }
+  
+  .position-bar {
+    height: 15px;
+    width: 200px;
+    background: aquamarine;
+    box-shadow: 2px 2px 2px;
+    grid-column-start: 5;
+    grid-column-end: 15;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    text-align: center;
+    font-family: rockwell;
+    padding: 1px;
+  }
+  
+  .index {
+    grid-column-start: 2;
+    grid-column-end: 22;
+    grid-row-start: 3;
+    grid-row-end: 15;
+    color: black;
+    font-size: 12px;
+  }
+  
+  .name {
+    grid-column-start: 5;
+    grid-column-end: 23;
+    grid-row-start: 2;
+    grid-row-end: 8;
+    color: white;
+    font-size: 28px;
+    text-shadow: -1px 0 black, 0 1px black, 2px 2px black, 0 1px black;
+  }
+  
+  .lastname {
+    grid-column-start: 6;
+    grid-column-end: 11;
+    grid-row-start: 5;
+    grid-row-end: 8;
+    color: white;
+    font-size: 20px;
+    text-shadow: -1px 0 black, 0 1px black, 2px 2px black, 0 1px black;
+  }
+  
+  .age {
+    grid-column-start: 15;
+    grid-column-end: 11;
+    grid-row-start: 2;
+    grid-row-end: 8;
+    color: white;
+  }
+
+  .statheader {
+    grid-column-start: 11;
+    grid-column-end: 12;
+    grid-row-start: 9;
+    grid-row-end: 20;
+    color: red;
+    width: 100px;
+  }
+  
+  .statheaders {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 9;
+    grid-row-end: 20;
+    color: red;
+    width: 300px;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: .5px;
+  }
+  
+  .stats {
+     grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 10;
+    grid-row-end: 20;
+    color: black;
+    width: 300px;
+    font-size: 12.5px;
+    line-height: 2;
+    letter-spacing: 1.2px;
+  }
+  
+  .stats2 {
+     grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 11;
+    grid-row-end: 20;
+    color: black;
+    width: 300px;
+    font-size: 13px;
+    line-height: 2;
+  }
+  
+  .stats3 {
+     grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 12;
+    grid-row-end: 20;
+    color: black;
+    width: 300px;
+    font-size: 13px;
+    line-height: 2;
+  }
