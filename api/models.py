@@ -9,7 +9,6 @@ from basketball_reference_web_scraper import client
 
 class CardManager(models.Manager):
     def create_card(self, id, player):
-        print('creating card')
         teamlogo = 'img/' + \
             stringcase.snakecase(player['team'].value.title()) + '.jpg'
         avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.jpg'
@@ -27,10 +26,8 @@ class CardManager(models.Manager):
         ftpercentage = "{0:.1%}".format(
             player['made_free_throws'] / player['attempted_free_throws'])[:-1]
         gp = '%02d' % player['games_played']
-        print('grabbing first name and last name')
         lastname = player['name'].split(' ', 1)[0]
         firstname = player['name'].split(' ', 1)[1]
-        print('grabbing position')
         position = "".join([word[0]
                             for word in player['positions'][0].value.split()])
         team = self.getTeam(player['team'].value.title())
@@ -42,7 +39,10 @@ class CardManager(models.Manager):
         return (ft + ((fg-three) * 2) + (three * 3))
 
     def getTeam(self, team):
-        if 3 < len(team.split(' ', 1)[0]) <= 7:
+        teamprefix = team.split(' ', 1)[0]
+        if teamprefix == 'Los':
+            return team.split(' ', 2)[2]
+        if 3 < len(team.split(' ', 1)[0]) <= 6:
             return team.split(' ', 1)[0]
         return team[:6]
 
