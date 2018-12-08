@@ -11,7 +11,7 @@ class CardManager(models.Manager):
     def create_card(self, id, player):
         teamlogo = 'img/' + \
             stringcase.snakecase(player['team'].value.title()) + '.jpg'
-        avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.jpg'
+        avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.png'
         photo = 'img/' + stringcase.snakecase(player['name']) + '.jpg'
         points = self.calculatePoints(
             player['made_free_throws'], player['made_field_goals'], player['made_three_point_field_goals'])

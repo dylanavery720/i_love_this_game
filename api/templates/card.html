@@ -6,10 +6,10 @@
     <div class="item-a">
         <div class="index">{{ player.id }}</div>
         <div class="name">
-            <p class="nametext">{{ player.name }}</p>
+            <p class="nametext">{{ player.lastname }}</p>
         </div>
         <div class="lastname">
-            <p class="nametext">{{ player.name }}</p>
+            <p class="nametext">{{ player.firstname }}</p>
         </div>
     </div>
     <strong class="statheader">NBA Record</strong>
@@ -19,7 +19,7 @@
     <p class="stats"> 18-19 {{player.team}} {{player.gp}} {{player.fgpercentage}} {{player.ftpercentage}}
         {{player.rpg}} {{player.apg}} {{player.spg}} {{player.bpg}} {{player.ppg}}</p>
     <div class="position-bar">#23/ {{player.position}}</div>
-    <div class="avatar"></div>
+    <div class="avatar" style="background-image: url({% static player.avatar %})"></div>
 </div>
 {% endfor %}
 {% endblock %}
