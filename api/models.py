@@ -1,7 +1,7 @@
 from django.db import models
 import stringcase
 from basketball_reference_web_scraper import client
-# from api.webscrape import getAvatar
+from api.webscrape import getAvatar, getJerseyNumber
 from api.teamcolors import teamcolors
 
 # Once deployed Database should be updated every day so that cards stay up to date...
@@ -11,8 +11,11 @@ from api.teamcolors import teamcolors
 
 class CardManager(models.Manager):
     def create_card(self, id, player):
+        print('creating card')
+        # jersey = getJerseyNumber(player['name'], player['team'].value.title())
+        # jersey = jerseynumbers[player['name']]
         teamlogo = 'img/' + \
-            stringcase.snakecase(player['team'].value.title()) + '.jpg'
+            stringcase.snakecase(player['team'].value.title()) + '.gif'
         avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.png'
         photo = 'img/' + stringcase.snakecase(player['name']) + '.jpg'
         points = self.calculatePoints(
@@ -70,6 +73,7 @@ class Card(models.Model):
     ftpercentage = models.CharField(max_length=200)
     gp = models.CharField(max_length=200)
     teamcolor = models.CharField(max_length=200)
+    jersey = models.CharField(max_length=200)
 
     objects = CardManager()
 

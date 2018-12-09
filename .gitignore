@@ -3,3 +3,6 @@
 *.pyc
 *.png
 geckodriver.log
+*.gif
+*.cv
+*.json
