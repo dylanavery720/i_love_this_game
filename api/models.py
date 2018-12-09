@@ -1,7 +1,7 @@
 from django.db import models
 import stringcase
 from basketball_reference_web_scraper import client
-from api.webscrape import getAvatar
+# from api.webscrape import getAvatar
 from api.teamcolors import teamcolors
 
 # Once deployed Database should be updated every day so that cards stay up to date...
@@ -11,7 +11,6 @@ from api.teamcolors import teamcolors
 
 class CardManager(models.Manager):
     def create_card(self, id, player):
-        # getAvatar(player['name'], player['team'].value.title())
         teamlogo = 'img/' + \
             stringcase.snakecase(player['team'].value.title()) + '.jpg'
         avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.png'

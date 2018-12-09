@@ -18,3 +18,6 @@ def getAvatar(player, playerteam):
     urllib.request.urlretrieve(
         avatarsrc, 'api/static/img/avatar_' + stringcase.snakecase(player) + '.png')
     browser.quit()
+
+
+# getAvatar('Lou Williams', 'Los Angeles Clippes')
