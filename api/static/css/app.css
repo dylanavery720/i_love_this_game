@@ -20,7 +20,7 @@
   }
   
   .avatar {
-    background-size: 100px 130px;
+    background-size: 110px 130px;
     grid-column-start: 21;
     grid-column-end: 30;
     grid-row-start: 2;
@@ -34,7 +34,7 @@
     height: 15px;
     width: 200px;
     background: aquamarine;
-    box-shadow: 2px 2px 2px;
+    box-shadow: 2px 2px 2px black;
     grid-column-start: 5;
     grid-column-end: 15;
     grid-row-start: 3;
