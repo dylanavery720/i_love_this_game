@@ -2,7 +2,9 @@ import urllib.request
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import stringcase
-import csv
+import json
+import os
+# from teamcolors import teamcolors
 
 
 def getAvatar(player, playerteam):
@@ -21,32 +23,31 @@ def getAvatar(player, playerteam):
     browser.quit()
 
 
-listofnums = []
+# jerseynumbers = {}
 
 
-def getJerseyNumber(player, playerteam):
-    print('grabbing jersey number')
-    browser = webdriver.Firefox()
+# def getJerseyNumbers(playerteam):
+#     print('grabbing jersey number')
+#     browser = webdriver.Firefox()
 
-    browser.get('http://qam.espn.go.com/nba/tools/lookup?method=headshots')
+#     browser.get('http://qam.espn.go.com/nba/tools/lookup?method=headshots')
 
-    teamelem = browser.find_element_by_xpath(
-        f"//body/form/select[@name='teamId']/option[text()='{playerteam}']").click()
-    playerelem = browser.find_element_by_link_text(player).click()
-    jersey = browser.find_element_by_xpath(
-        "//div[@class='ih-left-container']/h2")
+#     teamelem = browser.find_element_by_xpath(
+#         f"//body/form/select[@name='teamId']/option[text()='{playerteam}']").click()
+#     players = browser.find_elements_by_xpath("//body/table/tbody/tr")
+#     for i, p in enumerate(players):
+#         jerseynumbers[p.text.split(
+#             '\n', 1)[0]] = p.text.split(' ', 2)[2]
 
-    # write jersey to file so that they dont get lost
-    with open('listofnums.cv', 'w') as file:
-        writer = csv.DictWriter(file, fieldnames=[player])
-            writer.writerow(player, jersey.text.split(' ', 1)[0] )
-
-    browser.quit()
-    return entry
-    # return jersey.text.split(' ', 1)[0]
+#     browser.quit()
 
 
-# Should have this just scrape every time and fill a file with their name and number, doesnt need to be iterative
-getJerseyNumber('Jimmy Butler', "Philadelphia 76ers")
-getJerseyNumber('John Wall', "Washington Wizards")
+# for item in teamcolors:
+#     try:
+#         getJerseyNumbers(item)
+#     except:
+#         pass
 
+# with open('listofnums.json', 'w') as f:
+#     json.dump(jerseynumbers, f)
+#     f.write(os.linesep)
