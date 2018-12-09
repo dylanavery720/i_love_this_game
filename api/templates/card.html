@@ -12,14 +12,14 @@
             <p class="nametext">{{ player.firstname }}</p>
         </div>
     </div>
-    <strong class="statheader" style='color:#007A33'>NBA Record</strong>
+    <strong class="statheader">NBA Record</strong>
     <p class="statheaders"> YEAR TEAM GP FG% FT% REB AST STL BLK AVG</p>
     <!--   <p class="stats"> 16-17   TEAM  GP  FG%  FT%  REB  AST  STL  BLK  AVG</p>
   <p class="stats2"> 17-18   TEAM  GP  FG%  FT%  REB  AST  STL  BLK  AVG</p> -->
     <p class="stats"> 18-19 {{player.team}} {{player.gp}} {{player.fgpercentage}} {{player.ftpercentage}}
         {{player.rpg}} {{player.apg}} {{player.spg}} {{player.bpg}} {{player.ppg}}</p>
-    <div class="position-bar">#23/ {{player.position}}</div>
-    <div class="avatar" style="background-image: url({% static player.avatar %})"></div>
+    <div class="position-bar" style="background: {{ player.teamcolor }}; color: white;">#23/ {{player.position}}</div>
+    <div class="avatar" style="background-image: url({% static player.avatar %}); border: 3px solid {{ player.teamcolor }};"></div>
 </div>
 {% endfor %}
 {% endblock %}

@@ -35,7 +35,6 @@ class CardManager(models.Manager):
                             for word in player['positions'][0].value.split()])
         team = self.getTeam(player['team'].value.title())
         teamcolor = teamcolors[player['team'].value.title()]
-        print(team, teamcolor)
         card = self.create(id=id, name=player['name'], age=player['age'], team=team, teamlogo=teamlogo, avatar=avatar, photo=photo, position=position,
                            apg=apg, spg=spg, bpg=bpg, rpg=rpg, ppg=ppg, gp=gp, fgpercentage=fgpercentage, ftpercentage=ftpercentage, firstname=firstname, lastname=lastname, teamcolor=teamcolor)
         return card
