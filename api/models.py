@@ -1,6 +1,8 @@
 from django.db import models
 import stringcase
 from basketball_reference_web_scraper import client
+# from api.webscrape import getAvatar
+from api.teamcolors import teamcolors
 
 # Once deployed Database should be updated every day so that cards stay up to date...
 # season_totals_2017 = client.players_season_totals(season_end_year=2018)
@@ -11,7 +13,7 @@ class CardManager(models.Manager):
     def create_card(self, id, player):
         teamlogo = 'img/' + \
             stringcase.snakecase(player['team'].value.title()) + '.jpg'
-        avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.jpg'
+        avatar = 'img/avatar_' + stringcase.snakecase(player['name']) + '.png'
         photo = 'img/' + stringcase.snakecase(player['name']) + '.jpg'
         points = self.calculatePoints(
             player['made_free_throws'], player['made_field_goals'], player['made_three_point_field_goals'])
@@ -31,8 +33,9 @@ class CardManager(models.Manager):
         position = "".join([word[0]
                             for word in player['positions'][0].value.split()])
         team = self.getTeam(player['team'].value.title())
+        teamcolor = teamcolors[player['team'].value.title()]
         card = self.create(id=id, name=player['name'], age=player['age'], team=team, teamlogo=teamlogo, avatar=avatar, photo=photo, position=position,
-                           apg=apg, spg=spg, bpg=bpg, rpg=rpg, ppg=ppg, gp=gp, fgpercentage=fgpercentage, ftpercentage=ftpercentage, firstname=firstname, lastname=lastname)
+                           apg=apg, spg=spg, bpg=bpg, rpg=rpg, ppg=ppg, gp=gp, fgpercentage=fgpercentage, ftpercentage=ftpercentage, firstname=firstname, lastname=lastname, teamcolor=teamcolor)
         return card
 
     def calculatePoints(self, ft, fg, three):
@@ -66,6 +69,7 @@ class Card(models.Model):
     fgpercentage = models.CharField(max_length=200)
     ftpercentage = models.CharField(max_length=200)
     gp = models.CharField(max_length=200)
+    teamcolor = models.CharField(max_length=200)
 
     objects = CardManager()
 

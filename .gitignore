@@ -1,3 +1,5 @@
 .env
 .vscode
 *.pyc
+*.png
+geckodriver.log
