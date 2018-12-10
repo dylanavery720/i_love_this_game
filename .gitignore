@@ -5,4 +5,5 @@
 geckodriver.log
 *.gif
 *.cv
+*.jpg
 *.json

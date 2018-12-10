@@ -1,7 +1,6 @@
 
 .container {
     display: grid;
-  /*   border: 5px solid red; */
     box-shadow: 0px 0px 5px 1px;
     grid-template-columns: repeat(30, 10px);
     grid-template-rows: 10px 100px 10px 5px 5px 5px 5px auto;
@@ -27,7 +26,6 @@
     grid-row-end: 6;
     border: 3px solid aquamarine;
     box-shadow: 3px 3px 2px;
-    background-image: url('../img/avatar_alex__abrines.png');
   }
   
   .position-bar {
@@ -41,7 +39,9 @@
     grid-row-end: 6;
     text-align: center;
     font-family: rockwell;
-    padding: 1px;
+    padding: 1px 1px 1px 1px;
+    line-height: 1.8;
+    font-size: 12px;
   }
   
   .index {
@@ -57,9 +57,10 @@
     grid-column-start: 5;
     grid-column-end: 23;
     grid-row-start: 2;
-    grid-row-end: 8;
+    grid-row-end: 7;
     color: white;
-    font-size: 28px;
+    font-size: 20px;
+    font-family: 'bevan';
     text-shadow: -1px 0 black, 0 1px black, 2px 2px black, 0 1px black;
   }
   
@@ -69,7 +70,8 @@
     grid-row-start: 5;
     grid-row-end: 8;
     color: white;
-    font-size: 20px;
+    font-size: 14px;
+    font-family: 'bevan';
     text-shadow: -1px 0 black, 0 1px black, 2px 2px black, 0 1px black;
   }
   
@@ -134,4 +136,53 @@
     width: 300px;
     font-size: 13px;
     line-height: 2;
+  }
+
+  .front-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    height: 450px;
+    width: 300px;
+    margin: 20px auto;
+  }
+  
+  .name-box {
+    background: rgba(255,255,255,.6);
+    height: 35px;
+    width: 300px;
+    grid-row-start: 43;
+    grid-row-end: 45;
+    text-align: center;
+    padding: 5px 0px 10px 25px;
+    font-family: 'bevan';
+    color: midnightblue;
+    font-size: 16px;
+    font-weight: lighter;
+    text-shadow:  2px 2px #505050, 0 1px grey;
+    display: grid;
+  }
+  
+  .logo-box {
+    border: 5px solid midnightblue;
+    height: 80px;
+    width: 60px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    margin: -45px -20px;
+    border-radius: 40px 40px 0px 0px;
+    border-bottom-width: 15px;
+    background: white;
+    background-size: 60px 80px;
+  }
+  
+  .trademark {
+    color: white;
+    font-family: helvetica;
+    font-size: 10px;
+    position: fixed;
+    bottom: 0;
+    margin: 2px 2px 16px 30px;
   }
