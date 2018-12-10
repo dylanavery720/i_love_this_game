@@ -26,3 +26,11 @@ def card(request):
         'cards': cards,
     }
     return render(request, 'card.html', context=context)
+
+
+def frontcard(request):
+    cards = Card.objects.all()
+    context = {
+        'cards': cards,
+    }
+    return render(request, 'frontcard.html', context=context)
