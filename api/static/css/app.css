@@ -1,7 +1,6 @@
 
 .container {
     display: grid;
-  /*   border: 5px solid red; */
     box-shadow: 0px 0px 5px 1px;
     grid-template-columns: repeat(30, 10px);
     grid-template-rows: 10px 100px 10px 5px 5px 5px 5px auto;
@@ -27,7 +26,6 @@
     grid-row-end: 6;
     border: 3px solid aquamarine;
     box-shadow: 3px 3px 2px;
-    background-image: url('../img/avatar_alex__abrines.png');
   }
   
   .position-bar {
@@ -43,6 +41,7 @@
     font-family: rockwell;
     padding: 1px 1px 1px 1px;
     line-height: 1.8;
+    font-size: 12px;
   }
   
   .index {
@@ -146,7 +145,6 @@
     height: 450px;
     width: 300px;
     margin: 20px auto;
-    background-image: URL('https://www.hispanosnba.com/0image/300v/450av4160328003-mavericks-at-nuggets.jpg')
   }
   
   .name-box {
@@ -173,12 +171,10 @@
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 4;
-    margin: -45px 0px;
+    margin: -45px -20px;
     border-radius: 40px 40px 0px 0px;
     border-bottom-width: 15px;
     background: white;
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/7/76/Denver_Nuggets.svg/1200px-Denver_Nuggets.svg.png')
-  ;
     background-size: 60px 80px;
   }
   
