@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="homepage">
-    <!-- {% for player in cards %}
+    {% for player in cards %}
     <li>
         <p>{{ player.name }} / {{ player.team }} / APG: {{ player.apg }}</p>
         <p>{{ player.teamlogo }}</p>
@@ -15,6 +15,6 @@
         <p>FT%: {{ player.ftpercentage }}</p>
         <p>FG%: {{ player.fgpercentage }}</p>
     </li>
-    {% endfor %} -->
+    {% endfor %}
 </div>
 {% endblock %}
