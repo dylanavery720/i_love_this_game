@@ -164,7 +164,27 @@
   }
   
   .logo-box {
-    border: 5px solid midnightblue;
+    height: 80px;
+    width: 60px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-size: 60px 80px;
+    position: absolute;
+  }
+  
+  .trademark {
+    color: white;
+    font-family: helvetica;
+    font-size: 10px;
+    position: fixed;
+    bottom: 0;
+    margin: 2px 2px 16px 30px;
+  }
+
+  .logo-box-container {
+    position: relative;
     height: 80px;
     width: 60px;
     grid-column-start: 1;
@@ -175,14 +195,4 @@
     border-radius: 40px 40px 0px 0px;
     border-bottom-width: 15px;
     background: white;
-    background-size: 60px 80px;
-  }
-  
-  .trademark {
-    color: white;
-    font-family: helvetica;
-    font-size: 10px;
-    position: fixed;
-    bottom: 0;
-    margin: 2px 2px 16px 30px;
   }

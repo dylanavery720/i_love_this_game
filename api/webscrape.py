@@ -22,7 +22,6 @@ def getAvatar(player, playerteam):
         avatarsrc, 'api/static/img/avatar_' + stringcase.snakecase(player) + '.png')
     browser.quit()
 
-
 # jerseynumbers = {}
 
 
