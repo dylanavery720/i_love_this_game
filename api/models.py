@@ -12,6 +12,9 @@ from api.jerseynumbers import jerseynumbers
 
 class CardManager(models.Manager):
     def create_card(self, id, player):
+        if player['name'] == 'Jimmy Butler':
+            print(player)
+        # print out Jimmy Butlers whole team object and try to access 76ers, [-1?]
         jersey = jerseynumbers[player['name']]
         teamlogo = 'img/' + \
             stringcase.snakecase(player['team'].value.title()) + '.png'
