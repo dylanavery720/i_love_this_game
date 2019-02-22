@@ -10,6 +10,6 @@ teamcolors = {'Dallas Mavericks': 'royalblue',
               'New York Knicks': '#F58426', 'Orlando Magic': '#0077C0',
               'Philadelphia 76ers': '#ED174C', 'Phoenix Suns': 'purple',
               'Toronto Raptors': '#CE1141', 'Memphis Grizzlies': 'blue',
-              'Portland Blazers': '#E03A3E', 'Sacramento Kings': '#5A2D81',
+              'Portland Trail Blazers': '#E03A3E', 'Sacramento Kings': '#5A2D81',
               'San Antonio Spurs': 'fuchsia', 'Oklahoma City Thunder': '#007AC1',
               'Utah Jazz': 'navy', 'Washington Wizards': '#E31837'}
