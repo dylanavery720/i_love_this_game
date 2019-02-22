@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="front-container" style="background-image: url({% static card.photo %})">
+    <!-- <p class="trademark"><strong>NBA</strong> HOOPS</p> -->
+    <div class="name-box" style="color: {{card.teamcolor}}">
+        {{ card.lastname }} &nbsp; {{card.firstname}}
+        <div class='logo-box-container' style="border: 5px solid {{ card.teamcolor }}">
+            <div class="logo-box" style="background-image: url({% static card.teamlogo %})">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

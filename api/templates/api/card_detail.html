@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="item-a">
+        <a href="{{ card.get_absolute_url }}">
+            <div class="index">{{ card.id }}</div>
+        </a>
+        <div class="name">
+            <p class="nametext">{{ card.lastname }}</p>
+        </div>
+        <div class="lastname">
+            <p class="nametext">{{ card.firstname }}</p>
+        </div>
+    </div>
+    <strong class="statheader">NBA Record</strong>
+    <p class="statheaders"> YEAR TEAM GP FG% FT% REB AST STL BLK AVG</p>
+    <!--   <p class="stats"> 16-17   TEAM  GP  FG%  FT%  REB  AST  STL  BLK  AVG</p>
+      <p class="stats2"> 17-18   TEAM  GP  FG%  FT%  REB  AST  STL  BLK  AVG</p> -->
+    <p class="stats"> 18-19 {{card.team}} {{card.gp}} {{card.fgpercentage}} {{card.ftpercentage}}
+        {{card.rpg}} {{card.apg}} {{card.spg}} {{card.bpg}} {{card.ppg}}</p>
+    <div class="position-bar" style="background: {{ card.teamcolor }}; color: white;">{{card.jersey}}/
+        {{card.position}}</div>
+    <div class="avatar" style="background-image: url({% static card.avatar %}); border: 3px solid {{ card.teamcolor }};"></div>
+    <a href="{{card.get_front_url}}" class="link-arrow">=></a>
+</div>
+{% endblock %}

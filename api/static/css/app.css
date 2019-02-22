@@ -196,3 +196,15 @@
     border-bottom-width: 15px;
     background: white;
   }
+
+  .link-arrow {
+    font-size: 20px;
+    color: black;
+    margin: 300px 250px;
+    cursor: pointer;
+  }
+
+  .link-arrow:hover {
+    color: red;
+    font-size: 24px;
+  }

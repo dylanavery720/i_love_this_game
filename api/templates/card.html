@@ -4,7 +4,9 @@
 {% for player in cards %}
 <div class="container">
     <div class="item-a">
-        <div class="index">{{ player.id }}</div>
+        <a href="{{ player.get_absolute_url }}">
+            <div class="index">{{ player.id }}</div>
+        </a>
         <div class="name">
             <p class="nametext">{{ player.lastname }}</p>
         </div>

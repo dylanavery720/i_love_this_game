@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 from basketball_reference_web_scraper import client
 # Create your views here.
 
@@ -34,3 +35,15 @@ def frontcard(request):
         'cards': cards,
     }
     return render(request, 'frontcard.html', context=context)
+
+
+class CardDetailView(generic.DetailView):
+    model = Card
+    # fields = ('jersey', 'teamlogo')
+    # success_url = reverse_lazy('project_change')
+
+
+class FrontCardDetailView(generic.ListView):
+    model = Card
+    # fields = ('jersey', 'teamlogo')
+    # success_url = reverse_lazy('project_change')
