@@ -22,9 +22,6 @@ def index(request):
 
 def card(request):
     cards = Card.objects.all()
-    for index, card in enumerate(cards):
-        if card.team == 'Philad':
-            print(card)
     context = {
         'cards': cards,
     }
