@@ -3,6 +3,7 @@
 {% block content %}
 {% for player in cards %}
 {% if player.team == "Denver" %}
+{% if player.lastname != "BRANDON" %}
 <div class="container">
     <div class="item-a">
         <a href="{{ player.get_absolute_url }}">
