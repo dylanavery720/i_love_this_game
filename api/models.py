@@ -42,7 +42,7 @@ class CardManager(models.Manager):
                             for word in player['positions'][0].value.split()])
         team = self.getTeam(player['team'].value.title())
         if player['name'] == 'Jimmy Butler':
-            print(self.getTeam(player['team'].value.title()))
+            print(teamcolors[player['team'].value.title()])
         teamcolor = teamcolors[player['team'].value.title()]
         card = self.create(id=id, name=player['name'], age=player['age'], team=team, teamlogo=teamlogo, avatar=avatar, photo=photo, position=position,
                            apg=apg, spg=spg, bpg=bpg, rpg=rpg, ppg=ppg, gp=gp, fgpercentage=fgpercentage, ftpercentage=ftpercentage, firstname=firstname.upper(), lastname=lastname.upper(), teamcolor=teamcolor, jersey=jersey)
@@ -92,7 +92,7 @@ class Card(models.Model):
         return reverse('card_detail', args=[str(self.id)])
 
     def get_front_url(self):
-        return reverse('front_detail', args=[str(self.id)])
+        return reverse('card_list', args=[str(self.id)])
 
     def iter(self, cards):
         my_iter = iter(cards)

@@ -6,10 +6,12 @@
 <div class="front-container" style="background-image: url({% static player.photo %})">
     <!-- <p class="trademark"><strong>NBA</strong> HOOPS</p> -->
     <div class="name-box" style="color: {{player.teamcolor}}">
-        {{ player.lastname }} &nbsp; {{player.firstname}}
-        <div class='logo-box-container' style="border: 5px solid {{ player.teamcolor }}">
-            <div class="logo-box" style="background-image: url({% static player.teamlogo %})">
-            </div>
+        <a href="{{ player.get_absolute_url }}" style="color: {{player.teamcolor}}; width: 170px; margin: auto 70px; text-decoration: none">
+            {{ player.lastname }} &nbsp; {{player.firstname}}
+        </a>
+    </div>
+    <div class='logo-box-container' style="border: 5px solid {{ player.teamcolor }}">
+        <div class="logo-box" style="background-image: url({% static player.teamlogo %})">
         </div>
     </div>
 </div>

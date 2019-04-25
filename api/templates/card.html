@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% for player in cards %}
+{% if player.team == "Denver" %}
 <div class="container">
     <div class="item-a">
         <a href="{{ player.get_absolute_url }}">
@@ -24,5 +25,6 @@
         {{player.position}}</div>
     <div class="avatar" style="background-image: url({% static player.avatar %}); border: 3px solid {{ player.teamcolor }};"></div>
 </div>
+{% endif %}
 {% endfor %}
 {% endblock %}
