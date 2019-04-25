@@ -1,0 +1,1 @@
+web: gunicorn nbabasketball.wsgi

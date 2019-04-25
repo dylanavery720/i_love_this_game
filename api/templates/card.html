@@ -2,9 +2,13 @@
 {% load static %}
 {% block content %}
 {% for player in cards %}
+{% if player.team == "Denver" %}
+{% if player.lastname != "BRANDON" %}
 <div class="container">
     <div class="item-a">
-        <div class="index">{{ player.id }}</div>
+        <a href="{{ player.get_absolute_url }}">
+            <div class="index">{{ player.id }}</div>
+        </a>
         <div class="name">
             <p class="nametext">{{ player.lastname }}</p>
         </div>
@@ -22,5 +26,6 @@
         {{player.position}}</div>
     <div class="avatar" style="background-image: url({% static player.avatar %}); border: 3px solid {{ player.teamcolor }};"></div>
 </div>
+{% endif %}
 {% endfor %}
 {% endblock %}
