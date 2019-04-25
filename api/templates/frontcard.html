@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% for player in cards %}
+{% if player.team == "Denver" %}
 <div class="front-container" style="background-image: url({% static player.photo %})">
     <!-- <p class="trademark"><strong>NBA</strong> HOOPS</p> -->
     <div class="name-box" style="color: {{player.teamcolor}}">
@@ -12,5 +13,6 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endfor %}
 {% endblock %}

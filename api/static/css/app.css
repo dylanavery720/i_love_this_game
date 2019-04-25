@@ -19,7 +19,7 @@
   }
   
   .avatar {
-    background-size: 110px 130px;
+    background-size: 120px 130px;
     grid-column-start: 21;
     grid-column-end: 30;
     grid-row-start: 2;

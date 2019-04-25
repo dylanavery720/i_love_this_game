@@ -7,7 +7,6 @@ from api.models import Card
 
 
 def index(request):
-    Card.objects.all().delete()
     season_totals = client.players_season_totals(season_end_year=2019)
     for index, player in enumerate(season_totals):
         try:
