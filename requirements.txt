@@ -6,7 +6,7 @@ botocore==1.12.59
 cachetools==3.0.0
 certifi==2018.10.15
 chardet==3.0.4
-Django==2.1.4
+Django==2.2.10
 django-storages==1.7.1
 docutils==0.14
 google-api-core==1.6.0
